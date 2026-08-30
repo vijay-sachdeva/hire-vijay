@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hire Vijay — Strategy &amp; Operations, Applied AI</title>
+<meta name="description" content="One career, analyzed as a dataset. Trajectory, measured outcomes, work mix, market footprint, and an honest fit scorecard against the role.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<style>
+:root{
+  --bg:#f4f6f8; --card:#ffffff; --card-2:#f8fafc;
+  --ink:#0f1b2d; --ink-2:#475569; --muted:#8a97a8; --line:#e6e9ee;
+  --accent:#1d4ed8; --accent-soft:#eef3ff;
+  --amber:#c2710c; --amber-soft:#fdf3e6;
+  --green:#15803d; --green-soft:#ecf7ef;
+  --red:#c0322b; --red-soft:#fbeceb;
+  --shadow:0 1px 2px rgba(15,27,45,.04), 0 6px 20px rgba(15,27,45,.05);
+  /* categorical — validated: L-band, chroma, CVD ΔE, contrast */
+  --c1:#1d4ed8; --c2:#c2710c; --c3:#7c3aed; --c4:#15803d;
+  /* ordinal blue ramp, low→high */
+  --o1:#93B6EB; --o2:#6D99E2; --o3:#3E6CC4; --o4:#1B3C87;
+  --o1t:#10264A; --o2t:#0B1F3F; --o3t:#FFFFFF; --o4t:#FFFFFF;
+  --track:#dfe5ec;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0f172a; --card:#1e293b; --card-2:#243244;
+    --ink:#f1f5f9; --ink-2:#cbd5e1; --muted:#94a3b8; --line:#334155;
+    --accent:#60a5fa; --accent-soft:#1e3a8a;
+    --amber:#fbbf24; --amber-soft:#422006;
+    --green:#4ade80; --green-soft:#052e1c;
+    --red:#f87171; --red-soft:#3f1212;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 6px 20px rgba(0,0,0,.3);
+    --c1:#4285F0; --c2:#C48222; --c3:#9B6EF3; --c4:#2FA35C;
+    --o1:#325C9C; --o2:#4276C0; --o3:#5A93E4; --o4:#93BFF7;
+    --o1t:#E8F1FD; --o2t:#F2F7FE; --o3t:#0B1F3F; --o4t:#0B1F3F;
+    --track:#33415a;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0f172a; --card:#1e293b; --card-2:#243244;
+  --ink:#f1f5f9; --ink-2:#cbd5e1; --muted:#94a3b8; --line:#334155;
+  --accent:#60a5fa; --accent-soft:#1e3a8a;
+  --amber:#fbbf24; --amber-soft:#422006;
+  --green:#4ade80; --green-soft:#052e1c;
+  --red:#f87171; --red-soft:#3f1212;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 6px 20px rgba(0,0,0,.3);
+  --c1:#4285F0; --c2:#C48222; --c3:#9B6EF3; --c4:#2FA35C;
+  --o1:#325C9C; --o2:#4276C0; --o3:#5A93E4; --o4:#93BFF7;
+  --o1t:#E8F1FD; --o2t:#F2F7FE; --o3t:#0B1F3F; --o4t:#0B1F3F;
+  --track:#33415a;
+}
+*{box-sizing:border-box; margin:0; padding:0}
+body{
+  background:var(--bg); color:var(--ink);
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  font-size:15px; line-height:1.5; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1120px; margin:0 auto; padding:clamp(16px,3vw,32px) clamp(14px,3vw,28px) 56px}
+a{color:var(--accent); text-decoration:none; border-bottom:1px solid transparent}
+a:hover{border-bottom-color:currentColor}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:3px}
+h1,h2,h3{text-wrap:balance; line-height:1.2}
+
+/* ---- masthead ---- */
+.mast{display:flex; flex-wrap:wrap; gap:12px 20px; align-items:baseline; justify-content:space-between;
+  padding-bottom:14px; border-bottom:2px solid var(--ink)}
+.mast .who{font-size:19px; font-weight:800; letter-spacing:-.02em}
+.mast .who span{color:var(--muted); font-weight:500}
+.mast .meta{font-size:12px; color:var(--muted); display:flex; flex-wrap:wrap; gap:6px 14px}
+.badge{display:inline-flex; align-items:center; gap:6px; background:var(--green-soft); color:var(--green);
+  font-size:11px; font-weight:700; padding:3px 9px; border-radius:99px; letter-spacing:.01em}
+
+/* ---- verdict ---- */
+.verdict{background:var(--card); border:1px solid var(--line); border-top:3px solid var(--accent);
+  box-shadow:var(--shadow); padding:clamp(20px,3vw,30px); margin-top:20px;
+  display:grid; grid-template-columns:minmax(280px,1.15fr) minmax(260px,1fr); gap:26px 40px}
+.kicker{font-size:11px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--muted)}
+.verdict h1{font-size:clamp(30px,4.6vw,46px); font-weight:800; letter-spacing:-.032em; margin-top:10px}
+.verdict h1 em{font-style:normal; color:var(--accent)}
+.verdict .sub{margin-top:12px; font-size:15px; color:var(--ink-2); max-width:48ch}
+.pillars{display:grid; gap:0; align-self:center}
+.pillars div{display:grid; grid-template-columns:auto 1fr; gap:12px; padding:11px 0; border-top:1px solid var(--line); font-size:13.5px; color:var(--ink-2)}
+.pillars div:last-child{border-bottom:1px solid var(--line)}
+.pillars b{color:var(--accent); font-variant-numeric:tabular-nums; font-weight:700}
+.pillars strong{color:var(--ink); font-weight:700}
+
+/* ---- KPI strip ---- */
+.kpis{display:grid; grid-template-columns:repeat(auto-fit,minmax(168px,1fr)); gap:1px; background:var(--line);
+  border:1px solid var(--line); margin-top:18px}
+.kpi{background:var(--card); padding:15px 16px}
+.kpi .v{font-size:clamp(23px,3vw,29px); font-weight:800; letter-spacing:-.03em; line-height:1.05}
+.kpi .v i{font-style:normal; font-size:.55em; font-weight:600; color:var(--muted)}
+.kpi .k{margin-top:6px; font-size:12px; color:var(--ink-2); line-height:1.35}
+.kpi .t{margin-top:7px; font-size:10px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--muted)}
+
+/* ---- exhibit cards ---- */
+.grid{display:grid; grid-template-columns:repeat(12,1fr); gap:16px; margin-top:16px}
+.card{background:var(--card); border:1px solid var(--line); box-shadow:var(--shadow);
+  grid-column:span 12; display:flex; flex-direction:column}
+.card.half{grid-column:span 6}
+@media (max-width:840px){.card.half{grid-column:span 12}}
+.chead{padding:16px 18px 12px; border-bottom:1px solid var(--line)}
+.chead h2{font-size:clamp(16px,2vw,19px); font-weight:700; letter-spacing:-.015em; margin-top:7px}
+.chead p{margin-top:6px; font-size:12.5px; color:var(--ink-2); max-width:76ch}
+.cbody{padding:16px 18px 6px; flex:1}
+.plot{overflow-x:auto}
+.plot svg{display:block; width:100%; height:auto}
+.cfoot{padding:0 18px 14px}
+.src{font-size:10.5px; line-height:1.5; color:var(--muted); margin-top:10px}
+
+/* svg text classes */
+.ax{font-size:11px; fill:var(--muted); font-weight:500}
+.tier{font-size:10px; fill:var(--muted); font-weight:600; letter-spacing:.07em}
+.rn{font-size:12px; font-weight:700; fill:var(--ink)}
+.rs{font-size:10px; font-weight:600; fill:var(--muted); letter-spacing:.05em}
+.val{font-size:12.5px; font-weight:700; fill:var(--ink); font-variant-numeric:tabular-nums}
+.val.dim{fill:var(--muted); font-weight:600}
+.seg{font-size:11px; font-weight:700}
+.rowlab{font-size:12.5px; font-weight:600; fill:var(--ink)}
+.rowsub{font-size:10px; font-weight:600; fill:var(--muted); letter-spacing:.04em}
+
+.legend{display:flex; flex-wrap:wrap; gap:7px 18px; list-style:none; padding:0 0 12px; margin:0}
+.legend li{display:flex; align-items:center; gap:7px; font-size:12px; color:var(--ink-2)}
+.sw{width:10px; height:10px; border-radius:2px; flex:none}
+
+/* milestone key */
+.key{list-style:none; display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:1px;
+  background:var(--line); border:1px solid var(--line); margin-top:14px}
+.key li{background:var(--card); display:grid; grid-template-columns:20px 38px 1fr; gap:9px; align-items:baseline;
+  padding:9px 11px; font-size:12.5px; color:var(--ink-2)}
+.key li.on{background:var(--accent-soft)}
+.key .n{width:18px; height:18px; border-radius:50%; background:var(--accent); color:var(--card);
+  font-size:10.5px; font-weight:700; display:grid; place-items:center}
+.key .y{font-size:11px; font-weight:700; color:var(--muted); font-variant-numeric:tabular-nums}
+.key b{color:var(--ink); font-weight:700}
+
+/* legend for geography */
+.geo{list-style:none; display:grid; gap:10px; padding:0; margin:0; align-content:center}
+.geo li{display:grid; grid-template-columns:11px 1fr; gap:10px; font-size:12.5px; color:var(--ink-2)}
+.geo .sw{margin-top:4px}
+.geo b{display:block; color:var(--ink); font-weight:700; font-size:13px}
+
+/* lessons */
+.lsn{display:grid; grid-template-columns:repeat(auto-fit,minmax(228px,1fr)); gap:1px; background:var(--line); border-top:1px solid var(--line)}
+.lsn article{background:var(--card); padding:15px 17px}
+.lsn h3{font-size:14px; font-weight:700; letter-spacing:-.01em}
+.lsn p{margin-top:7px; font-size:12.5px; color:var(--ink-2)}
+.lsn .tg{font-size:10px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--accent)}
+
+/* plan */
+.plan{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:1px; background:var(--line); border-top:1px solid var(--line)}
+.plan div{background:var(--card); padding:16px 17px}
+.plan .w{font-size:10.5px; font-weight:700; letter-spacing:.09em; color:var(--accent)}
+.plan h3{margin-top:8px; font-size:14.5px; font-weight:700}
+.plan p{margin-top:6px; font-size:12.5px; color:var(--ink-2)}
+
+/* tables */
+details{border-top:1px solid var(--line); margin-top:8px}
+summary{cursor:pointer; padding-top:10px; font-size:10.5px; font-weight:700; letter-spacing:.09em;
+  text-transform:uppercase; color:var(--muted); list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"+ "; color:var(--accent)}
+details[open] summary::before{content:"− "}
+summary:hover{color:var(--accent)}
+.ts{overflow-x:auto; margin-top:10px}
+table{border-collapse:collapse; width:100%; font-size:12px; min-width:400px}
+th,td{text-align:left; padding:6px 12px 6px 0; border-bottom:1px solid var(--line); white-space:nowrap}
+th{font-size:10px; font-weight:700; letter-spacing:.07em; text-transform:uppercase; color:var(--muted)}
+td{color:var(--ink-2)} td:first-child{color:var(--ink); font-weight:600}
+td.n,th.n{text-align:right; padding-right:0; font-variant-numeric:tabular-nums}
+
+footer{margin-top:26px; padding-top:16px; border-top:2px solid var(--ink);
+  display:flex; flex-wrap:wrap; gap:10px 22px; align-items:baseline; justify-content:space-between}
+.lnk{display:flex; flex-wrap:wrap; gap:8px 18px; font-size:13px; font-weight:600}
+.colo{font-size:11px; color:var(--muted); max-width:52ch}
+
+#tip{position:fixed; pointer-events:none; opacity:0; transform:translate(-50%,-128%); z-index:60;
+  background:var(--ink); color:var(--bg); padding:6px 10px; font-size:11.5px; font-weight:600;
+  border-radius:4px; white-space:nowrap; transition:opacity .1s}
+.hit{cursor:crosshair}
+.hit:hover{filter:brightness(1.07)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+@media (max-width:700px){.verdict{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="mast">
+    <div>
+      <div class="who">Vijay Sachdeva <span>· 19 years in infrastructure strategy &amp; analytics</span></div>
+      <div class="meta" style="margin-top:6px">
+        <span>SF Bay Area</span><span>·</span>
+        <a href="mailto:vijaysachdeva@gmail.com">vijaysachdeva@gmail.com</a><span>·</span>
+        <a href="https://linkedin.com/in/vijay-sachdeva">LinkedIn</a><span>·</span>
+        <a href="https://vijay-sachdeva.github.io/us-ai-infra/">US AI Infra Monitor</a>
+      </div>
+    </div>
+    <span class="badge">● Exceeded Expectations — 2024 &amp; 2025</span>
+  </header>
+
+  <!-- ================= VERDICT ================= -->
+  <section class="verdict">
+    <div>
+      <div class="kicker">Application · Strategy &amp; Operations, Applied AI (AMER)</div>
+      <h1>A résumé claims the analysis skill. <em>This runs it.</em></h1>
+      <p class="sub">Same treatment I would give a segment: the trajectory, the measured outcomes,
+        where the time actually went, and a fit scorecard that shows the gap in red.</p>
+    </div>
+    <div class="pillars">
+      <div><b>01</b><span>Built <strong>the metrics layer and the review cadence</strong> this role starts with — took a stalled backbone partnership to <strong>105% of target in 6 months</strong>.</span></div>
+      <div><b>02</b><span>Turns messy data into decisions: <strong>900 mislabeled sites</strong> nobody could see, <strong>$43M</strong> off run-rate.</span></div>
+      <div><b>03</b><span>Eight years <strong>on the buy side</strong> of enterprise infrastructure deals — the room Applied AI sells into.</span></div>
+    </div>
+  </section>
+
+  <!-- ================= KPIs ================= -->
+  <section class="kpis">
+    <div class="kpi"><div class="v">$43M</div><div class="k">Annualized overhead eliminated</div><div class="t">Asset recovery</div></div>
+    <div class="kpi"><div class="v">$1B</div><div class="k">Subsea consortium structured</div><div class="t">2Africa</div></div>
+    <div class="kpi"><div class="v">200M</div><div class="k">People brought into 4G reach</div><div class="t">DRC · Madagascar · Mozambique</div></div>
+    <div class="kpi"><div class="v">3.2M<i> km</i></div><div class="k">Fiber indexed at 95% accuracy</div><div class="t">OTDR integrity rebuild</div></div>
+    <div class="kpi"><div class="v">105<i>%</i></div><div class="k">Of delivery target, in 6 months</div><div class="t">Largest US backbone partner</div></div>
+    <div class="kpi"><div class="v">27,000</div><div class="k">Legacy sites decommissioned</div><div class="t">Sprint iDEN PMO</div></div>
+  </section>
+
+  <div class="grid">
+
+    <!-- ============ EX 1 : OUTCOMES DUMBBELL ============ -->
+    <section class="card">
+      <div class="chead">
+        <div class="kicker">Exhibit 1 — Measured outcomes</div>
+        <h2>Three systems that were broken, and where they ended up.</h2>
+        <p>Each row is a documented before-and-after on a metric someone senior was accountable for.</p>
+      </div>
+      <div class="cbody">
+        <div class="plot">
+          <svg viewBox="0 0 900 268" role="img" aria-label="Before and after chart: AI answer accuracy 30 to 85 percent; backbone delivery 30 to 105 percent of target; fiber reporting accuracy 14 to 95 percent.">
+            <g class="ax">
+              <line x1="260" y1="52" x2="260" y2="238" stroke="var(--line)"></line>
+              <line x1="394.1" y1="52" x2="394.1" y2="238" stroke="var(--line)"></line>
+              <line x1="528.2" y1="52" x2="528.2" y2="238" stroke="var(--line)"></line>
+              <line x1="662.3" y1="52" x2="662.3" y2="238" stroke="var(--line)"></line>
+              <line x1="796.4" y1="52" x2="796.4" y2="238" stroke="var(--line)"></line>
+              <text x="260" y="256" text-anchor="middle">0%</text>
+              <text x="394.1" y="256" text-anchor="middle">25%</text>
+              <text x="528.2" y="256" text-anchor="middle">50%</text>
+              <text x="662.3" y="256" text-anchor="middle">75%</text>
+              <text x="796.4" y="256" text-anchor="middle">100%</text>
+            </g>
+            <g class="ax" font-weight="700" fill="var(--muted)">
+              <text x="260" y="40">BEFORE</text><text x="850" y="40" text-anchor="end">AFTER</text>
+            </g>
+
+            <!-- row 1 : AI accuracy 30 → 85 -->
+            <text class="rowlab" x="244" y="72" text-anchor="end">AI answer accuracy</text>
+            <text class="rowsub" x="244" y="87" text-anchor="end">METAMATE + CLAUDE CODE</text>
+            <line x1="420.9" y1="78" x2="715.9" y2="78" stroke="var(--track)" stroke-width="4" stroke-linecap="round"></line>
+            <circle class="hit" cx="420.9" cy="78" r="6.5" fill="var(--muted)" data-tip="Before — 30% answer accuracy"></circle>
+            <circle class="hit" cx="715.9" cy="78" r="9" fill="var(--c1)" stroke="var(--card)" stroke-width="2" data-tip="After — 85% answer accuracy"></circle>
+            <text class="val dim" x="406" y="83" text-anchor="end">30%</text>
+            <text class="val" x="732" y="83">85%</text>
+
+            <!-- row 2 : delivery 30 → 105 -->
+            <text class="rowlab" x="244" y="148" text-anchor="end">Capacity delivery vs. target</text>
+            <text class="rowsub" x="244" y="163" text-anchor="end">LARGEST US BACKBONE PARTNER</text>
+            <line x1="420.9" y1="154" x2="823.2" y2="154" stroke="var(--track)" stroke-width="4" stroke-linecap="round"></line>
+            <circle class="hit" cx="420.9" cy="154" r="6.5" fill="var(--muted)" data-tip="Before — ~30% delivering; 70% of planned capacity blocked"></circle>
+            <circle class="hit" cx="823.2" cy="154" r="9" fill="var(--c1)" stroke="var(--card)" stroke-width="2" data-tip="After — 105% of delivery target, within 6 months"></circle>
+            <text class="val dim" x="406" y="159" text-anchor="end">~30%</text>
+            <text class="val" x="839" y="159">105%</text>
+
+            <!-- row 3 : fiber reporting 14 → 95 -->
+            <text class="rowlab" x="244" y="218" text-anchor="end">Fiber-mileage reporting accuracy</text>
+            <text class="rowsub" x="244" y="233" text-anchor="end">OTDR-VALIDATED, INCL. SUBSEA</text>
+            <line x1="335.1" y1="224" x2="769.6" y2="224" stroke="var(--track)" stroke-width="4" stroke-linecap="round"></line>
+            <circle class="hit" cx="335.1" cy="224" r="6.5" fill="var(--muted)" data-tip="Before — 86% discrepancy against OTDR-measured length"></circle>
+            <circle class="hit" cx="769.6" cy="224" r="9" fill="var(--c1)" stroke="var(--card)" stroke-width="2" data-tip="After — 3.2M fiber km reported at 95% accuracy"></circle>
+            <text class="val dim" x="320" y="229" text-anchor="end">14%</text>
+            <text class="val" x="786" y="229">95%</text>
+          </svg>
+        </div>
+        <details>
+          <summary>Data table &amp; derivations</summary>
+          <div class="ts">
+            <table>
+              <thead><tr><th>Metric</th><th class="n">Before</th><th class="n">After</th><th>Stated on résumé as</th></tr></thead>
+              <tbody>
+                <tr><td>AI answer accuracy</td><td class="n">30%</td><td class="n">85%</td><td>"Scaled AI query accuracy from 30% to 85%"</td></tr>
+                <tr><td>Capacity delivery vs. target</td><td class="n">~30%</td><td class="n">105%</td><td>"Resolving a 70% capacity-delivery bottleneck"; "105% of delivery targets within 6 months"</td></tr>
+                <tr><td>Fiber-mileage accuracy</td><td class="n">14%</td><td class="n">95%</td><td>"Correcting an 86% discrepancy"; "3.2M fiber km at 95% accuracy"</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+      </div>
+      <div class="cfoot"><p class="src">Source: résumé, 2005–2026. Two "before" values are derived, and the derivation is shown above rather than hidden: a 70% delivery shortfall is plotted as ~30% delivering, and an 86% discrepancy as 14% accurate. Both after-values are stated directly.</p></div>
+    </section>
+
+    <!-- ============ EX 2 : TRAJECTORY ============ -->
+    <section class="card">
+      <div class="chead">
+        <div class="kicker">Exhibit 2 — Trajectory, 2005–2026</div>
+        <h2>Every move was one rung up in decision altitude — build the component, advise the client, run the program, own the system.</h2>
+        <p>Vertical position is the scope of the decision owned, not job title. Numbered points are documented outcomes, keyed below.</p>
+      </div>
+      <div class="cbody">
+        <div class="plot">
+          <svg viewBox="0 0 900 400" role="img" aria-label="Career trajectory 2005 to 2026 rising through four levels of decision altitude with six milestones.">
+            <text class="tier" x="24" y="34">DECISION ALTITUDE</text>
+            <line class="gl" x1="210" y1="70"  x2="878" y2="70"  stroke="var(--line)"></line>
+            <line class="gl" x1="210" y1="145" x2="878" y2="145" stroke="var(--line)"></line>
+            <line class="gl" x1="210" y1="220" x2="878" y2="220" stroke="var(--line)"></line>
+            <line class="gl" x1="210" y1="295" x2="878" y2="295" stroke="var(--line)"></line>
+            <text class="tier" x="196" y="74"  text-anchor="end">OWN THE SYSTEM</text>
+            <text class="tier" x="196" y="149" text-anchor="end">RUN THE PROGRAM</text>
+            <text class="tier" x="196" y="224" text-anchor="end">ADVISE THE CLIENT</text>
+            <text class="tier" x="196" y="299" text-anchor="end">BUILD THE COMPONENT</text>
+
+            <path d="M210,295 H398.6 V340 H210 Z" fill="var(--accent)" opacity=".07"></path>
+            <path d="M461.4,220 H524.3 V145 H618.6 V70 H870 V340 H461.4 Z" fill="var(--accent)" opacity=".07"></path>
+            <path d="M210,295 H398.6" fill="none" stroke="var(--accent)" stroke-width="2.5"></path>
+            <path d="M398.6,295 L461.4,220" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-dasharray="3 4" opacity=".6"></path>
+            <path d="M461.4,220 H524.3 V145 H618.6 V70 H870" fill="none" stroke="var(--accent)" stroke-width="2.5"></path>
+
+            <text class="rn" x="210" y="278">Meritech · Japan</text>
+            <text class="rs" x="210" y="261">SOFTWARE ENGINEER · 2005–2011</text>
+            <text class="rs" x="433" y="286" text-anchor="middle">MBA, PURDUE</text>
+            <text class="rn" x="461" y="203">inCODE (Ericsson)</text>
+            <text class="rs" x="461" y="186">SR CONSULTANT · 2013–2015</text>
+            <text class="rn" x="528" y="128">Consulting Manager</text>
+            <text class="rs" x="528" y="111">2015–2018</text>
+            <text class="rn" x="870" y="51" text-anchor="end">Meta · Network Infrastructure</text>
+            <text class="rs" x="870" y="34" text-anchor="end">DATA &amp; ANALYTICS / STRATEGY MANAGER · 2018–2026</text>
+
+            <line x1="210" y1="340" x2="878" y2="340" stroke="var(--muted)" opacity=".5"></line>
+            <g class="ax" text-anchor="middle">
+              <text x="210" y="360">2005</text><text x="367.1" y="360">2010</text><text x="524.3" y="360">2015</text>
+              <text x="681.4" y="360">2020</text><text x="838.6" y="360">2025</text>
+            </g>
+            <g id="ms">
+              <g class="hit" data-ms="1" data-tip="2010 · Sigma validation tooling for NTT Docomo's nationwide 4G launch">
+                <circle cx="367.1" cy="295" r="11" fill="var(--card)" stroke="var(--accent)" stroke-width="2"></circle>
+                <text x="367.1" y="299" text-anchor="middle" class="seg" fill="var(--accent)">1</text></g>
+              <g class="hit" data-ms="2" data-tip="2015 · Spectrum demand + valuation models for India's 4G auction">
+                <circle cx="508.6" cy="220" r="11" fill="var(--card)" stroke="var(--accent)" stroke-width="2"></circle>
+                <text x="508.6" y="224" text-anchor="middle" class="seg" fill="var(--accent)">2</text></g>
+              <g class="hit" data-ms="3" data-tip="2017 · 27,000 legacy iDEN sites decommissioned; 2.5GHz freed">
+                <circle cx="587.1" cy="145" r="11" fill="var(--card)" stroke="var(--accent)" stroke-width="2"></circle>
+                <text x="587.1" y="149" text-anchor="middle" class="seg" fill="var(--accent)">3</text></g>
+              <g class="hit" data-ms="4" data-tip="2020 · $1B 2Africa value-exchange model; 200M people reached">
+                <circle cx="681.4" cy="70" r="11" fill="var(--card)" stroke="var(--accent)" stroke-width="2"></circle>
+                <text x="681.4" y="74" text-anchor="middle" class="seg" fill="var(--accent)">4</text></g>
+              <g class="hit" data-ms="5" data-tip="2023 · 900 mislabeled sites surfaced; $43M annualized overhead removed">
+                <circle cx="775.7" cy="70" r="11" fill="var(--card)" stroke="var(--accent)" stroke-width="2"></circle>
+                <text x="775.7" y="74" text-anchor="middle" class="seg" fill="var(--accent)">5</text></g>
+              <g class="hit" data-ms="6" data-tip="2025 · Continuous eval framework; AI accuracy 30% → 85%">
+                <circle cx="838.6" cy="70" r="11" fill="var(--card)" stroke="var(--accent)" stroke-width="2"></circle>
+                <text x="838.6" y="74" text-anchor="middle" class="seg" fill="var(--accent)">6</text></g>
+            </g>
+          </svg>
+        </div>
+        <ol class="key" id="key">
+          <li data-ms="1"><span class="n">1</span><span class="y">2010</span><span>Built the Sigma drive-test tooling — RSSI, Rx Qual, BER — behind <b>NTT Docomo's nationwide 4G launch</b>.</span></li>
+          <li data-ms="2"><span class="n">2</span><span class="y">2015</span><span>Models that let <b>Reliance bid competitively</b> in India's 4G spectrum auction.</span></li>
+          <li data-ms="3"><span class="n">3</span><span class="y">2017</span><span>PMO for <b>27,000 legacy iDEN sites</b> decommissioned, freeing premium 2.5GHz.</span></li>
+          <li data-ms="4"><span class="n">4</span><span class="y">2020</span><span>Value-exchange model for the <b>$1B 2Africa cable</b> — subsea cost traded for terrestrial build.</span></li>
+          <li data-ms="5"><span class="n">5</span><span class="y">2023</span><span><b>900 mislabeled sites</b>, 33% of backbone inventory — <b>$43M</b> off run-rate.</span></li>
+          <li data-ms="6"><span class="n">6</span><span class="y">2025</span><span>Eval framework took internal AI from <b>30% to 85%</b>; now Net Infra's reference model.</span></li>
+        </ol>
+        <details>
+          <summary>Data table — trajectory</summary>
+          <div class="ts"><table>
+            <thead><tr><th>Period</th><th>Organization</th><th>Role</th><th>Decision altitude</th><th class="n">Yrs</th></tr></thead>
+            <tbody>
+              <tr><td>2005–2011</td><td>Meritech (Japan)</td><td>Software Engineer</td><td>Build the component</td><td class="n">6</td></tr>
+              <tr><td>2011–2013</td><td>Purdue University</td><td>MBA, Strategy &amp; Operations</td><td>—</td><td class="n">2</td></tr>
+              <tr><td>2013–2015</td><td>inCODE (Ericsson)</td><td>Sr Consultant</td><td>Advise the client</td><td class="n">2</td></tr>
+              <tr><td>2015–2018</td><td>inCODE (Ericsson)</td><td>Consulting Manager</td><td>Run the program</td><td class="n">3</td></tr>
+              <tr><td>2018–2026</td><td>Meta</td><td>Data &amp; Analytics / Strategy Manager</td><td>Own the system</td><td class="n">8</td></tr>
+            </tbody></table></div>
+        </details>
+      </div>
+      <div class="cfoot"><p class="src">Source: résumé, 2005–2026. Decision altitude is a four-tier ordinal scale defined for this exhibit. Dashed segment is full-time graduate study.</p></div>
+    </section>
+
+    <!-- ============ EX 3 : MEKKO ============ -->
+    <section class="card half">
+      <div class="chead">
+        <div class="kicker">Exhibit 3 — Where 19 years went</div>
+        <h2>Strategy grew 0% → 35% of the work, and hands-on engineering never hit zero.</h2>
+        <p>Column width = share of career years. Column height = work mix inside the role.</p>
+      </div>
+      <div class="cbody">
+        <ul class="legend">
+          <li><span class="sw" style="background:var(--o4)"></span>Strategy &amp; deal-making</li>
+          <li><span class="sw" style="background:var(--o3)"></span>Analysis &amp; modeling</li>
+          <li><span class="sw" style="background:var(--o2)"></span>Delivery &amp; PMO</li>
+          <li><span class="sw" style="background:var(--o1)"></span>Engineering &amp; tooling</li>
+        </ul>
+        <div class="plot">
+          <svg viewBox="0 0 900 430" role="img" aria-label="Marimekko: column width is share of career years by employer, column height is work mix.">
+            <g class="ax" text-anchor="end">
+              <text x="104" y="44">100%</text><text x="104" y="123">75%</text><text x="104" y="202">50%</text>
+              <text x="104" y="281">25%</text><text x="104" y="360">0%</text>
+            </g>
+            <g stroke="var(--line)">
+              <line x1="110" y1="40" x2="118" y2="40"></line><line x1="110" y1="119" x2="118" y2="119"></line>
+              <line x1="110" y1="198" x2="118" y2="198"></line><line x1="110" y1="277" x2="118" y2="277"></line>
+              <line x1="110" y1="356" x2="118" y2="356"></line>
+            </g>
+            <g>
+              <rect class="hit" x="118" y="139" width="233.7" height="217" fill="var(--o1)" data-tip="Meritech · Engineering &amp; tooling — 70%"></rect>
+              <text class="seg" x="234.8" y="252" text-anchor="middle" fill="var(--o1t)">70%</text>
+              <rect class="hit" x="118" y="75" width="233.7" height="62" fill="var(--o2)" data-tip="Meritech · Delivery &amp; PMO — 20%"></rect>
+              <text class="seg" x="234.8" y="110" text-anchor="middle" fill="var(--o2t)">20%</text>
+              <rect class="hit" x="118" y="42" width="233.7" height="31" fill="var(--o3)" data-tip="Meritech · Analysis &amp; modeling — 10%"></rect>
+              <text class="seg" x="234.8" y="62" text-anchor="middle" fill="var(--o3t)">10%</text>
+            </g>
+            <g>
+              <rect class="hit" x="355.7" y="325" width="194.7" height="31" fill="var(--o1)" data-tip="inCODE · Engineering &amp; tooling — 10%"></rect>
+              <text class="seg" x="453" y="345" text-anchor="middle" fill="var(--o1t)">10%</text>
+              <rect class="hit" x="355.7" y="245.5" width="194.7" height="77.5" fill="var(--o2)" data-tip="inCODE · Delivery &amp; PMO — 25%"></rect>
+              <text class="seg" x="453" y="288" text-anchor="middle" fill="var(--o2t)">25%</text>
+              <rect class="hit" x="355.7" y="135" width="194.7" height="108.5" fill="var(--o3)" data-tip="inCODE · Analysis &amp; modeling — 35%"></rect>
+              <text class="seg" x="453" y="193" text-anchor="middle" fill="var(--o3t)">35%</text>
+              <rect class="hit" x="355.7" y="40" width="194.7" height="93" fill="var(--o4)" data-tip="inCODE · Strategy &amp; deal-making — 30%"></rect>
+              <text class="seg" x="453" y="91" text-anchor="middle" fill="var(--o4t)">30%</text>
+            </g>
+            <g>
+              <rect class="hit" x="554.4" y="309.5" width="311.6" height="46.5" fill="var(--o1)" data-tip="Meta · Engineering &amp; tooling — 15%"></rect>
+              <text class="seg" x="710.2" y="337" text-anchor="middle" fill="var(--o1t)">15%</text>
+              <rect class="hit" x="554.4" y="245.5" width="311.6" height="62" fill="var(--o2)" data-tip="Meta · Delivery &amp; PMO — 20%"></rect>
+              <text class="seg" x="710.2" y="280" text-anchor="middle" fill="var(--o2t)">20%</text>
+              <rect class="hit" x="554.4" y="150.5" width="311.6" height="93" fill="var(--o3)" data-tip="Meta · Analysis &amp; modeling — 30%"></rect>
+              <text class="seg" x="710.2" y="201" text-anchor="middle" fill="var(--o3t)">30%</text>
+              <rect class="hit" x="554.4" y="40" width="311.6" height="108.5" fill="var(--o4)" data-tip="Meta · Strategy &amp; deal-making — 35%"></rect>
+              <text class="seg" x="710.2" y="98" text-anchor="middle" fill="var(--o4t)">35%</text>
+            </g>
+            <line x1="118" y1="366" x2="866" y2="366" stroke="var(--muted)" opacity=".5"></line>
+            <g text-anchor="middle">
+              <text class="rn" x="234.8" y="388">Meritech</text><text class="rs" x="234.8" y="404">6 YRS · 32%</text>
+              <text class="rn" x="453" y="388">inCODE (Ericsson)</text><text class="rs" x="453" y="404">5 YRS · 26%</text>
+              <text class="rn" x="710.2" y="388">Meta</text><text class="rs" x="710.2" y="404">8 YRS · 42%</text>
+            </g>
+          </svg>
+        </div>
+        <details>
+          <summary>Data table — work mix</summary>
+          <div class="ts"><table>
+            <thead><tr><th>Employer</th><th class="n">Yrs</th><th class="n">Eng</th><th class="n">Delivery</th><th class="n">Analysis</th><th class="n">Strategy</th></tr></thead>
+            <tbody>
+              <tr><td>Meritech</td><td class="n">6</td><td class="n">70%</td><td class="n">20%</td><td class="n">10%</td><td class="n">0%</td></tr>
+              <tr><td>inCODE</td><td class="n">5</td><td class="n">10%</td><td class="n">25%</td><td class="n">35%</td><td class="n">30%</td></tr>
+              <tr><td>Meta</td><td class="n">8</td><td class="n">15%</td><td class="n">20%</td><td class="n">30%</td><td class="n">35%</td></tr>
+            </tbody></table></div>
+        </details>
+      </div>
+      <div class="cfoot"><p class="src">Column widths are exact (years ÷ 19). The within-role mix is a self-assessment, shown numerically in the table.</p></div>
+    </section>
+
+    <!-- ============ EX 4 : GEOGRAPHY ============ -->
+    <section class="card half">
+      <div class="chead">
+        <div class="kicker">Exhibit 4 — Market footprint</div>
+        <h2>Four markets, four regulatory regimes, one recurring job: model the capacity case before the capital commits.</h2>
+        <p>Career years allocated to the market that primarily drove the work.</p>
+      </div>
+      <div class="cbody">
+        <div class="plot" style="display:grid; grid-template-columns:minmax(240px,1fr) minmax(190px,1fr); gap:16px; align-items:center">
+          <svg viewBox="0 0 400 330" role="img" aria-label="Pie of career years by market: United States 42%, Japan 32%, Africa 16%, India 11%.">
+            <g stroke="var(--card)" stroke-width="2">
+              <path class="hit" d="M190,168 L190,43 A125,125 0 0 1 249.5,277.9 Z" fill="var(--c1)" data-tip="United States — 8 years (42%)"></path>
+              <path class="hit" d="M190,168 L249.5,277.9 A125,125 0 0 1 65.4,178.3 Z" fill="var(--c2)" data-tip="Japan — 6 years (32%)"></path>
+              <path class="hit" d="M190,168 L65.4,178.3 A125,125 0 0 1 113.3,69.3 Z" fill="var(--c3)" data-tip="Africa — 3 years (16%)"></path>
+              <path class="hit" d="M190,168 L113.3,69.3 A125,125 0 0 1 190,43 Z" fill="var(--c4)" data-tip="India — 2 years (11%)"></path>
+            </g>
+            <g class="val">
+              <text x="333" y="132">42%</text>
+              <text x="120" y="298" text-anchor="middle">32%</text>
+              <text x="55" y="109" text-anchor="end">16%</text>
+              <text x="142" y="28" text-anchor="middle">11%</text>
+            </g>
+          </svg>
+          <ul class="geo">
+            <li><span class="sw" style="background:var(--c1)"></span><span><b>United States · 8 yrs</b>Backbone partnership, asset recovery, AI evals, national decommissioning PMO</span></li>
+            <li><span class="sw" style="background:var(--c2)"></span><span><b>Japan · 6 yrs</b>Validation tooling for an early nationwide 4G launch; Docomo vs KDDI benchmarking</span></li>
+            <li><span class="sw" style="background:var(--c3)"></span><span><b>Africa · 3 yrs</b>2Africa consortium economics — Airtel, Vodacom, MTN; DRC, Madagascar, Mozambique</span></li>
+            <li><span class="sw" style="background:var(--c4)"></span><span><b>India · 2 yrs</b>Spectrum demand and valuation modeling for a national auction</span></li>
+          </ul>
+        </div>
+        <details>
+          <summary>Data table — market footprint</summary>
+          <div class="ts"><table>
+            <thead><tr><th>Market</th><th class="n">Yrs</th><th class="n">Share</th><th>Primary engagement</th></tr></thead>
+            <tbody>
+              <tr><td>United States</td><td class="n">8</td><td class="n">42.1%</td><td>Meta backbone &amp; analytics; Sprint iDEN decommissioning</td></tr>
+              <tr><td>Japan</td><td class="n">6</td><td class="n">31.6%</td><td>Meritech / NTT Docomo network validation</td></tr>
+              <tr><td>Africa</td><td class="n">3</td><td class="n">15.8%</td><td>2Africa subsea consortium</td></tr>
+              <tr><td>India</td><td class="n">2</td><td class="n">10.5%</td><td>Reliance 4G spectrum valuation</td></tr>
+            </tbody></table></div>
+        </details>
+      </div>
+      <div class="cfoot"><p class="src">Engagements overlap in time; each year is allocated to a single primary market so shares sum to 19. Allocation within the inCODE and Meta periods is estimated.</p></div>
+    </section>
+
+    <!-- ============ EX 5 : FIT SCORECARD ============ -->
+    <section class="card">
+      <div class="chead">
+        <div class="kicker">Exhibit 5 — Fit against the posted requirements</div>
+        <h2>Five of six requirements have direct evidence. The sixth is a gap, and it is shown in red.</h2>
+        <p>Self-scored against the job description. Three blocks = direct evidence, two = adjacent, zero = no claim.</p>
+      </div>
+      <div class="cbody">
+        <div class="plot">
+          <svg viewBox="0 0 900 330" role="img" aria-label="Scorecard: five requirements with direct evidence, one adjacent, one gap.">
+            <g class="ax" font-weight="700">
+              <text x="600" y="22">EVIDENCE STRENGTH</text>
+            </g>
+
+            <!-- rows -->
+            <g id="fit">
+              <!-- 1 -->
+              <text class="rowlab" x="0" y="56">Converting data into supported recommendations</text>
+              <text class="rowsub" x="0" y="71">$43M ASSET RECOVERY · OTDR INTEGRITY REBUILD · 30→85% EVALS</text>
+              <rect x="600" y="44" width="82" height="15" rx="2" fill="var(--green)"></rect>
+              <rect x="686" y="44" width="82" height="15" rx="2" fill="var(--green)"></rect>
+              <rect x="772" y="44" width="82" height="15" rx="2" fill="var(--green)"></rect>
+              <text class="rowsub" x="900" y="56" text-anchor="end" style="fill:var(--green)">DIRECT</text>
+              <!-- 2 -->
+              <text class="rowlab" x="0" y="106">Designing planning processes &amp; business reviews</text>
+              <text class="rowsub" x="0" y="121">VENDOR QBRs · DELIVERY CADENCE · LARGE-SCALE DEPLOYMENT PMO</text>
+              <rect x="600" y="94" width="82" height="15" rx="2" fill="var(--green)"></rect>
+              <rect x="686" y="94" width="82" height="15" rx="2" fill="var(--green)"></rect>
+              <rect x="772" y="94" width="82" height="15" rx="2" fill="var(--green)"></rect>
+              <text class="rowsub" x="900" y="106" text-anchor="end" style="fill:var(--green)">DIRECT</text>
+              <!-- 3 -->
+              <text class="rowlab" x="0" y="156">Influencing senior stakeholders without authority</text>
+              <text class="rowsub" x="0" y="171">VP-LEVEL SYNTHESIS AT META · 3-CARRIER CONSORTIUM STRUCTURE</text>
+              <rect x="600" y="144" width="82" height="15" rx="2" fill="var(--green)"></rect>
+              <rect x="686" y="144" width="82" height="15" rx="2" fill="var(--green)"></rect>
+              <rect x="772" y="144" width="82" height="15" rx="2" fill="var(--green)"></rect>
+              <text class="rowsub" x="900" y="156" text-anchor="end" style="fill:var(--green)">DIRECT</text>
+              <!-- 4 -->
+              <text class="rowlab" x="0" y="206">Management consulting with commercial experience</text>
+              <text class="rowsub" x="0" y="221">5 YRS inCODE / ERICSSON · $1B DEAL STRUCTURE · AUCTION PRICING</text>
+              <rect x="600" y="194" width="82" height="15" rx="2" fill="var(--green)"></rect>
+              <rect x="686" y="194" width="82" height="15" rx="2" fill="var(--green)"></rect>
+              <rect x="772" y="194" width="82" height="15" rx="2" fill="var(--green)"></rect>
+              <text class="rowsub" x="900" y="206" text-anchor="end" style="fill:var(--green)">DIRECT</text>
+              <!-- 5 -->
+              <text class="rowlab" x="0" y="256">GTM systems &amp; business intelligence tools</text>
+              <text class="rowsub" x="0" y="271">BI + PYTHON/SQL + PIPELINES: YES · CRM/GTM STACK: LEARNING CURVE</text>
+              <rect x="600" y="244" width="82" height="15" rx="2" fill="var(--amber)"></rect>
+              <rect x="686" y="244" width="82" height="15" rx="2" fill="var(--amber)"></rect>
+              <rect x="772" y="244" width="82" height="15" rx="2" fill="var(--track)"></rect>
+              <text class="rowsub" x="900" y="256" text-anchor="end" style="fill:var(--amber)">ADJACENT</text>
+              <!-- 6 -->
+              <text class="rowlab" x="0" y="306">Sales strategy / revenue operations ownership</text>
+              <text class="rowsub" x="0" y="321">NEVER CARRIED A QUOTA — BUT SPENT 8 YRS AS THE ENTERPRISE BUYER</text>
+              <rect x="600" y="294" width="82" height="15" rx="2" fill="var(--track)"></rect>
+              <rect x="686" y="294" width="82" height="15" rx="2" fill="var(--track)"></rect>
+              <rect x="772" y="294" width="82" height="15" rx="2" fill="var(--track)"></rect>
+              <text class="rowsub" x="900" y="306" text-anchor="end" style="fill:var(--red)">GAP</text>
+            </g>
+          </svg>
+        </div>
+      </div>
+      <div class="cfoot"><p class="src">Source: requirements as posted, scored against the résumé. Strength is self-assessed and stated in words as well as color. The gap row is the honest one: I have never owned a revenue number — I have been the customer evaluating the vendor, which is the room Applied AI sells into.</p></div>
+    </section>
+
+    <!-- ============ EX 6 : THE ARC ============ -->
+    <section class="card">
+      <div class="chead">
+        <div class="kicker">Exhibit 6 — Why this mission, specifically</div>
+        <h2>The same problem at four layers: getting access to people who were born without it.</h2>
+      </div>
+      <div class="cbody">
+        <div class="plot">
+          <svg viewBox="0 0 900 190" role="img" aria-label="Timeline: 1947 Partition displacement, 2011 Purdue MBA, 2020 2Africa, 2026 Anthropic.">
+            <line x1="120" y1="86" x2="780" y2="86" stroke="var(--line)" stroke-width="2"></line>
+            <g>
+              <circle cx="120" cy="86" r="7" fill="var(--muted)"></circle>
+              <text class="rs" x="120" y="52" text-anchor="middle">PARTITION</text>
+              <text class="rn" x="120" y="34" text-anchor="middle">1947</text>
+              <text class="ax" x="120" y="112" text-anchor="middle">Family displaced.</text>
+              <text class="ax" x="120" y="128" text-anchor="middle">No assets, no network.</text>
+            </g>
+            <g>
+              <circle cx="340" cy="86" r="9" fill="var(--c2)"></circle>
+              <text class="rs" x="340" y="52" text-anchor="middle">PURDUE</text>
+              <text class="rn" x="340" y="34" text-anchor="middle">2011</text>
+              <text class="ax" x="340" y="112" text-anchor="middle">Education moved one family</text>
+              <text class="ax" x="340" y="128" text-anchor="middle">across a continent.</text>
+            </g>
+            <g>
+              <circle cx="560" cy="86" r="13" fill="var(--c3)"></circle>
+              <text class="rs" x="560" y="52" text-anchor="middle">2AFRICA</text>
+              <text class="rn" x="560" y="34" text-anchor="middle">2020</text>
+              <text class="ax" x="560" y="112" text-anchor="middle">$1B structured → 200M people.</text>
+              <text class="ax" x="560" y="128" text-anchor="middle">DRC, Madagascar, Mozambique.</text>
+            </g>
+            <g>
+              <circle cx="780" cy="86" r="16" fill="var(--accent)"></circle>
+              <text class="rs" x="780" y="52" text-anchor="middle">NEXT</text>
+              <text class="rn" x="780" y="34" text-anchor="middle">2026</text>
+              <text class="ax" x="780" y="112" text-anchor="middle">Connectivity bridged the digital</text>
+              <text class="ax" x="780" y="128" text-anchor="middle">divide. AI bridges the next one.</text>
+            </g>
+            <text class="rs" x="450" y="172" text-anchor="middle" fill="var(--muted)">MARKER SIZE INDICATES REACH — ILLUSTRATIVE, NOT TO SCALE</text>
+          </svg>
+        </div>
+      </div>
+      <div class="cfoot"><p class="src">I am the child of displaced immigrants. Access to education is the only reason my trajectory changed, which is why building the infrastructure of access has been the through-line of the work rather than a coincidence of it.</p></div>
+    </section>
+
+    <!-- ============ LESSONS ============ -->
+    <section class="card">
+      <div class="chead">
+        <div class="kicker">Exhibit 7 — Operating beliefs</div>
+        <h2>Five things I would bring to the first business review.</h2>
+      </div>
+      <div class="lsn">
+        <article><p class="tg">Meta · asset recovery</p><h3>The bottleneck is never the technology. It's the table nobody owns.</h3><p>900 sites, a third of the inventory, invisible to every system meant to see them. A governance problem in an engineering costume — worth $43M a year.</p></article>
+        <article><p class="tg">Meta · 2Africa</p><h3>Align the incentive and the deal writes itself.</h3><p>Three carriers didn't need persuading, they needed a trade: subsea cost for terrestrial expansion they already wanted. Structure beats advocacy.</p></article>
+        <article><p class="tg">Meta · AI evals</p><h3>If you can't measure the pilot, you don't have a pilot.</h3><p>Assistants were wrong most of the time and confident about it. Accuracy went 30% → 85% the moment measurement existed.</p></article>
+        <article><p class="tg">inCODE · spectrum</p><h3>Price the market, not the asset.</h3><p>The real question was never "what is this worth" but "what is it worth to us, here, against these bidders." Same distinction as a metrics report versus a business review.</p></article>
+        <article><p class="tg">Meta · backbone delivery</p><h3>Speed comes from removing a handoff, not adding people.</h3><p>The shortfall wasn't staffing; it was a seam between vendor updates and internal inventory that no tool crossed. One sync closed it.</p></article>
+      </div>
+    </section>
+
+    <!-- ============ PLAN ============ -->
+    <section class="card">
+      <div class="chead">
+        <div class="kicker">Recommendation, operationalized</div>
+        <h2>First 90 days, mapped to what the role actually asks for.</h2>
+      </div>
+      <div class="plan">
+        <div><div class="w">DAYS 1–30</div><h3>Instrument before building</h3><p>Inventory the metrics AMER leadership already asks for; find the ones no system owns. Settle definitions with central RevOps first — a dashboard shipped before that gets relitigated in month two.</p></div>
+        <div><div class="w">DAYS 31–60</div><h3>One dashboard, one cadence</h3><p>Publish the segment view and run the first monthly business review off it. Standing agenda, pre-read that leads with the recommendation, written decision log.</p></div>
+        <div><div class="w">DAYS 61–90</div><h3>Frame the use cases</h3><p>First use-case taxonomy from CRM, call reviews and pitch clinics — then a prioritization framework explicit about what AMER <em>stops</em> doing. A framework that only adds is a wish list.</p></div>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <div class="lnk">
+      <a href="https://vijay-sachdeva.github.io/us-ai-infra/">US AI Infra Monitor</a>
+      <a href="https://linkedin.com/in/vijay-sachdeva">LinkedIn</a>
+      <a href="mailto:vijaysachdeva@gmail.com">vijaysachdeva@gmail.com</a>
+    </div>
+    <p class="colo">Every chart is hand-drawn SVG — no chart library, no build step. Palette inherited from the US AI Infra Monitor. The résumé version is available on request; this one is the work sample.</p>
+  </footer>
+</div>
+
+<div id="tip" role="status" aria-live="polite"></div>
+<script>
+(function(){
+  var tip=document.getElementById('tip');
+  function show(e,t){tip.textContent=t;tip.style.left=e.clientX+'px';tip.style.top=e.clientY+'px';tip.style.opacity='1';}
+  function hide(){tip.style.opacity='0';}
+  document.querySelectorAll('.hit').forEach(function(el){
+    var t=el.getAttribute('data-tip'); if(!t) return;
+    el.addEventListener('mousemove',function(e){show(e,t);});
+    el.addEventListener('mouseleave',hide);
+  });
+  var rows={};
+  document.querySelectorAll('#key li').forEach(function(li){rows[li.getAttribute('data-ms')]=li;});
+  document.querySelectorAll('#ms .hit').forEach(function(g){
+    var id=g.getAttribute('data-ms');
+    g.addEventListener('mouseenter',function(){if(rows[id])rows[id].classList.add('on');});
+    g.addEventListener('mouseleave',function(){if(rows[id])rows[id].classList.remove('on');});
+  });
+  window.addEventListener('scroll',hide,{passive:true});
+})();
+</script>
+</body>
+</html>
