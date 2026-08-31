@@ -1,20 +1,17 @@
-# Hire Vijay
+# Vijay Sachdeva — portfolio dashboard
 
-A single-page dashboard used as a job application for **Strategy & Operations, Applied AI (AMER)** at Anthropic.
+A single-page dashboard that presents nineteen years of strategy, operations and analytics
+work as an analyst deliverable rather than a resume.
 
-The premise: the role asks for someone who converts data into actionable, well-supported
-recommendations. A résumé asserts that skill — this runs it, on the only dataset I can share
-in full (my own career, 2005–2026).
+Engineer in India, engineer in Japan, strategy and operations in the US. Technical enough to
+build the system, commercial enough to run it.
 
-**Contents**
-- Exhibit 1 — Measured outcomes (before → after on three broken systems)
-- Exhibit 2 — Trajectory, 2005–2026 (decision altitude + milestones)
-- Exhibit 3 — Where 19 years went (marimekko: career share × work mix)
-- Exhibit 4 — Market footprint (US, Japan, Africa, India)
-- Exhibit 5 — Fit against the posted requirements, including the gap
-- Exhibit 6 — Why this mission, specifically
-- Exhibit 7 — Operating beliefs, and a 90-day plan
+**Exhibits**
+1. The trajectory — two decades across three countries, by scope owned
+2. 2Africa — the value exchange that unlocked a $1B subsea cable and brought 100M+ people online
+3. What I run today — vendor operations: targets, escalations, executive reviews
+4. Fit scorecard — scored against a role's requirements, including the gap
 
 **Build:** none. Single `index.html`, hand-drawn SVG charts, no chart library.
-Palette inherited from the [US AI Infra Monitor](https://vijay-sachdeva.github.io/us-ai-infra/)
-and validated for colour-vision separation and contrast in both light and dark themes.
+Palette shared with the [US AI Infra Monitor](https://vijay-sachdeva.github.io/us-ai-infra/)
+and validated for colour-vision separation and contrast in light and dark themes.
